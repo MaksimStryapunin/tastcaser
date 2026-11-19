@@ -19,8 +19,9 @@ cmake --build build --config Release
 ```
 
 Исполняемый файл будет расположен в `build/Release/ActionRecorder.exe`.
-Проект использует C++17, флаги `/utf-8`, `/source-charset:utf-8` и
-`/execution-charset:utf-8` для MSVC.
+Проект использует C++17 и флаг `/utf-8` для MSVC. Этот флаг одновременно
+задаёт UTF-8 для исходных файлов и строк выполнения; отдельные charset-флаги
+на новых версиях MSVC несовместимы с `/utf-8`.
 
 Также сборку можно выполнить из Visual Studio: откройте корень репозитория
 через «Open Folder» или сгенерируйте решение через CMake.
