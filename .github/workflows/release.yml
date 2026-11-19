@@ -3,7 +3,7 @@ name: Build and publish alpha release
 on:
   push:
     tags:
-      - "alfa-0.0.2"
+      - "v0.0.1-alpha"
   workflow_dispatch:
 
 permissions:
@@ -29,17 +29,23 @@ jobs:
           Copy-Item build/Release/ActionRecorder.exe dist/
           Copy-Item README.md dist/
           Copy-Item sample_log.txt dist/
-          Compress-Archive -Path dist/* -DestinationPath ActionRecorder-alpha-0.0.2-windows-x64.zip -Force
+          Copy-Item CMakeLists.txt dist/
+          Copy-Item release_notes.md dist/
+          Compress-Archive -Path dist/* -DestinationPath ActionRecorder-alpha-0.0.1-x64.zip -Force
 
       - name: Create pre-release
         env:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          gh release create alfa-0.0.2 `
+          gh release create v0.0.1-alpha `
             --repo "${{ github.repository }}" `
             --target "${{ github.sha }}" `
-            --title "alfa 0.0.2" `
+            --title "Alpha 0.0.1 — First Test Release" `
             --prerelease `
-            --notes "Pre-release alpha 0.0.2 for Windows x64. Download ActionRecorder-alpha-0.0.2-windows-x64.zip, extract it, and run ActionRecorder.exe." `
-            ActionRecorder-alpha-0.0.2-windows-x64.zip
+            --notes-file release_notes.md `
+            ActionRecorder-alpha-0.0.1-x64.zip `
+            dist/ActionRecorder.exe `
+            dist/README.md `
+            dist/sample_log.txt `
+            dist/CMakeLists.txt
