@@ -257,6 +257,11 @@ std::filesystem::path OpenLogFile(const std::wstring& selectedPath) {
     g_log.write(reinterpret_cast<const char*>(bom), sizeof(bom));
     g_log
         << "ActionRecorder alpha 0.0.1 - лог действий тестируемого приложения\r\n"
+        << "Целевой процесс: "
+        << (g_targetExe.empty()
+                ? "не задан; глобальные хуки не установлены"
+                : EscapeUtf8(Utf8FromWide(g_targetExe.c_str())))
+        << "\r\n"
         << "Для нейросети: каждая строка имеет формат "
            "[TIMESTAMP] | [OBJECT_IDENTIFIER] | [ACTION] | [DURATION_MS]. "
            "TIMESTAMP - локальное время ЧЧ:ММ:СС.ммм. "
