@@ -1,0 +1,10 @@
+﻿ActionRecorder alpha 0.0.1 — лог действий пользователя
+Для нейросети: каждая строка имеет формат [TIMESTAMP] | [OBJECT_IDENTIFIER] | [ACTION] | [DURATION_MS]. TIMESTAMP — локальное время ЧЧ:ММ:СС.ммм. OBJECT_IDENTIFIER — UIA:ControlType(Name="[Name]", AutomationId="[Id]") либо POS:Mouse(X=[x], Y=[y]). ACTION описывает клавишу или действие мыши. DURATION_MS — длительность в миллисекундах.
+Кодировка файла: UTF-8 с BOM.
+
+12:31:05.120 | UIA:Edit(Name="Поиск", AutomationId="SearchBox") | KeyPress(65) | 0
+12:31:05.220 | UIA:Edit(Name="Поиск", AutomationId="SearchBox") | KeyRelease(65) | 100
+12:31:07.015 | POS:Mouse(X=842, Y=415) | MouseMove | 1795
+12:31:07.050 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseDown(LEFT) | 0
+12:31:07.180 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseClick(LEFT) | 130
+12:31:07.180 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseUp(LEFT) | 130
