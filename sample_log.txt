@@ -1,10 +1,10 @@
-﻿ActionRecorder alpha 0.0.1 — лог действий пользователя
-Для нейросети: каждая строка имеет формат [TIMESTAMP] | [OBJECT_IDENTIFIER] | [ACTION] | [DURATION_MS]. TIMESTAMP — локальное время ЧЧ:ММ:СС.ммм. OBJECT_IDENTIFIER — UIA:ControlType(Name="[Name]", AutomationId="[Id]") либо POS:Mouse(X=[x], Y=[y]). ACTION описывает клавишу или действие мыши. DURATION_MS — длительность в миллисекундах.
+﻿ActionRecorder alpha 0.0.1 - лог действий тестируемого приложения
+Для нейросети: каждая строка имеет формат [TIMESTAMP] | [OBJECT_IDENTIFIER] | [ACTION] | [DURATION_MS]. TIMESTAMP - локальное время ЧЧ:ММ:СС.ммм. OBJECT_IDENTIFIER - UIA:ControlType(Name="[Name]", AutomationId="[Id]") либо POS:Mouse(X=[x], Y=[y]). ACTION - действие мыши или код физической клавиши VK_CODE без сохранения текста. DURATION_MS - длительность нажатия или интервал до предыдущего действия.
+Запись выполняется только для активного процесса, указанного в --target=<Имя.exe>. Введённый текст намеренно не записывается.
 Кодировка файла: UTF-8 с BOM.
 
-12:31:05.120 | UIA:Edit(Name="Поиск", AutomationId="SearchBox") | KeyPress(65) | 0
-12:31:05.220 | UIA:Edit(Name="Поиск", AutomationId="SearchBox") | KeyRelease(65) | 100
-12:31:07.015 | POS:Mouse(X=842, Y=415) | MouseMove | 1795
-12:31:07.050 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseDown(LEFT) | 0
-12:31:07.180 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseClick(LEFT) | 130
-12:31:07.180 | UIA:Button(Name="Применить", AutomationId="ApplyButton") | MouseUp(LEFT) | 130
+12:31:05.120 | UIA:Button(Name="Пуск", AutomationId="") | MouseDown(LEFT) | 0
+12:31:05.220 | UIA:Button(Name="Пуск", AutomationId="") | MouseClick(LEFT) | 100
+12:31:07.015 | UIA:Text(Name="Работа 20:00", AutomationId="") | MouseClick(LEFT) | 1795
+12:31:09.050 | UIA:Edit(Name="", AutomationId="") | KeyPress(68) | 0
+12:31:09.180 | UIA:Edit(Name="", AutomationId="") | KeyRelease(68) | 130
