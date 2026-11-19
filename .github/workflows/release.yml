@@ -1,0 +1,45 @@
+name: Build and publish alpha release
+
+on:
+  push:
+    tags:
+      - "alfa-0.0.2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build -A x64
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          Copy-Item build/Release/ActionRecorder.exe dist/
+          Copy-Item README.md dist/
+          Copy-Item sample_log.txt dist/
+          Compress-Archive -Path dist/* -DestinationPath ActionRecorder-alpha-0.0.2-windows-x64.zip -Force
+
+      - name: Create pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          gh release create alfa-0.0.2 `
+            --repo "${{ github.repository }}" `
+            --target "${{ github.sha }}" `
+            --title "alfa 0.0.2" `
+            --prerelease `
+            --notes "Pre-release alpha 0.0.2 for Windows x64. Download ActionRecorder-alpha-0.0.2-windows-x64.zip, extract it, and run ActionRecorder.exe." `
+            ActionRecorder-alpha-0.0.2-windows-x64.zip

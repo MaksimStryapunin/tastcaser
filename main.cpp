@@ -18,10 +18,10 @@
 namespace {
 
 constexpr wchar_t APP_NAME[] = L"ActionRecorder";
-constexpr char APP_VERSION[] = "0.0.1-alpha";
+constexpr char APP_VERSION[] = "0.0.2-alpha";
 constexpr int APP_VERSION_MAJOR = 0;
 constexpr int APP_VERSION_MINOR = 0;
-constexpr int APP_VERSION_PATCH = 1;
+constexpr int APP_VERSION_PATCH = 2;
 constexpr UINT WM_APP_LOG_EVENT = WM_APP + 1;
 
 HHOOK g_keyboardHook = nullptr;
@@ -190,7 +190,7 @@ std::filesystem::path CreateLogFile(
     }
     const unsigned char bom[] = {0xEF, 0xBB, 0xBF};
     g_log.write(reinterpret_cast<const char*>(bom), sizeof(bom));
-    g_log << "ActionRecorder alpha 0.0.1 — лог действий пользователя\r\n"
+    g_log << "ActionRecorder alpha 0.0.2 — лог действий пользователя\r\n"
           << "Для нейросети: каждая строка имеет формат "
              "[TIMESTAMP] | [OBJECT_IDENTIFIER] | [ACTION] | [DURATION_MS]. "
              "TIMESTAMP — локальное время ЧЧ:ММ:СС.ммм. "
@@ -420,7 +420,7 @@ int wmain() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::wcout << L"ActionRecorder alpha 0.0.1\n";
+    std::wcout << L"ActionRecorder alpha 0.0.2\n";
 
     const HRESULT comResult = CoInitializeEx(
         nullptr, COINIT_APARTMENTTHREADED);

@@ -1,4 +1,4 @@
-﻿# ActionRecorder alpha 0.0.1
+﻿# ActionRecorder alpha 0.0.2
 
 Консольная программа для Windows 10/11, которая в фоновом режиме собирает
 глобальные события клавиатуры и мыши и записывает их в UTF-8 лог-файл.
@@ -30,7 +30,7 @@ cmake --build build --config Release
 .\build\Release\ActionRecorder.exe
 ```
 
-При запуске программа выводит `ActionRecorder alpha 0.0.1`, затем запрашивает:
+При запуске программа выводит `ActionRecorder alpha 0.0.2`, затем запрашивает:
 
 1. Путь для сохранения логов.
 2. Имя лог-файла без расширения.
@@ -77,7 +77,7 @@ cmake --build build --config Release
   координатный fallback.
 - Версия предназначена для тестирования на разных конфигурациях Windows.
 
-## Релиз alpha 0.0.1
+## Релиз alpha 0.0.2
 
 Артефакты тестового релиза: собранный `ActionRecorder.exe` для Windows x64,
 этот README, пример `sample_log.txt` и исходный `CMakeLists.txt`.

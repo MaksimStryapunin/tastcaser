@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.16)
 
-project(ActionRecorder VERSION 0.0.1 LANGUAGES CXX)
+project(ActionRecorder VERSION 0.0.2 LANGUAGES CXX)
 
 add_executable(ActionRecorder
     main.cpp
